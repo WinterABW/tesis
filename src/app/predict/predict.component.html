@@ -1,0 +1,217 @@
+<div class="flex flex-col sm:flex-row justify-around">
+    <div class="lg:w-1/4 max-h-full sm:overflow-y-auto">
+        <form [formGroup]="formulario"  (ngSubmit)="enviarDatos()"
+            class="flex flex-col shadow-2xl p-6 rounded-lg overflow-y-auto">
+            <div class="flex flex-col">
+                <label class="block mb-2 text-3xl font-medium dark:text-white">Factores Predictores:</label>
+                <div class="flex items-center mb-2">
+                    <input id="paridad" type="checkbox" value="1" formControlName="paridad"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mr-2" />
+                    <label for="paridad" class="text-lg font-medium text-gray-900 dark:text-gray-300">Paridad
+                        (Pa)</label>
+
+                </div>
+                <div class="flex items-center mb-2">
+                    <input id="nivel_escolaridad" type="checkbox" value="1" formControlName="nivel_escolaridad"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mr-2" />
+                    <label for="nivel_escolaridad" class="text-lg font-medium text-gray-900 dark:text-gray-300">Nivel de
+                        Escolaridad (NE)</label>
+
+                </div>
+                <div class="flex items-center mb-2">
+                    <input id="higiene_bucal" type="checkbox" value="1" formControlName="higiene_bucal"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mr-2" />
+                    <label for="higiene_bucal" class="text-lg font-medium text-gray-900 dark:text-gray-300">Higiene
+                        Bucal
+                        (HB)</label>
+
+                </div>
+                <div class="flex items-center mb-2">
+                    <input id="adiccion_tabaquica" type="checkbox" value="1" formControlName="adiccion_tabaquica"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mr-2" />
+                    <label for="adiccion_tabaquica"
+                        class="text-lg font-medium text-gray-900 dark:text-gray-300">Adicción
+                        Tabaquica (AT)</label>
+
+                </div>
+                <div class="flex items-center mb-2">
+                    <input id="estres_psicologico" type="checkbox" value="1" formControlName="estres_psicologico"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mr-2" />
+                    <label for="estres_psicologico" class="text-lg font-medium text-gray-900 dark:text-gray-300">Estrés
+                        Psicológico (EP)</label>
+
+                </div>
+                <div class="flex items-center mb-2">
+                    <input id="diabetes_mellitus" type="checkbox" value="1" formControlName="diabetes_mellitus"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mr-2" />
+                    <label for="diabetes_mellitus" class="text-lg font-medium text-gray-900 dark:text-gray-300">Diabetes
+                        Mellitus (DM)</label>
+
+                </div>
+                <div class="flex items-center mb-2">
+                    <input id="obesidad" type="checkbox" value="1" formControlName="obesidad"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mr-2" />
+                    <label for="obesidad" class="text-lg font-medium text-gray-900 dark:text-gray-300">Obesidad
+                        (O)</label>
+
+                </div>
+                <button type="submit"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enviar</button>
+            </div>
+        </form>
+    </div>
+    <div class="sm:w-3/5 w-full flex flex-col shadow-2xl p-6 rounded-lg">
+        <div *ngIf="result" class="text-black dark:text-white">
+            <div class="relative sm:overflow-x-auto">
+                <table class="w-full text-sm text-gray-500 dark:text-gray-400">
+                    <thead
+                        class="w-full text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+                        <tr>
+                            <th scope="col" class="px-6 py-3 rounded-s-lg">
+                                Categorías de riesgo
+                            </th>
+                            <th scope="col" class="px-6 py-3">
+                                Escala (probabilidad de adquirir periodontitis)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-center">
+                        <tr class="bg-white dark:bg-gray-800">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Bajo
+                            </th>
+                            <td class="px-6 py-4">
+                                0,0021 ≤ p < 0,199 </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-800">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Medio
+                            </th>
+                            <td class="px-6 py-4">
+                                0,199 ≤ p ≤ 0,480
+                            </td>
+                        </tr>
+                        <tr class="bg-white dark:bg-gray-800">
+                            <th scope="row"
+                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Alto
+                            </th>
+                            <td class="px-6 py-4">
+                                0,480 < p ≤ 0,999 </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="flex mt-10 justify-center">
+                    <h1 class=" text-2xl text-black dark:text-white">
+                        Su probabilidad es {{valor}}
+                    </h1>
+                    <button (click)="restoreData()" class="ml-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                            id="mdi-restore" width="25" height="25" viewBox="0 0 24 24"
+                            :class="{'text-black': isDarkMode, 'text-white': !isDarkMode}">
+                            <path fill="currentColor"
+                                d="M13,3A9,9 0 0,0 4,12H1L4.89,15.89L4.96,16.03L9,12H6A7,7 0 0,1 13,5A7,7 0 0,1 20,12A7,7 0 0,1 13,19C11.07,19 9.32,18.21 8.06,16.94L6.64,18.36C8.27,20 10.5,21 13,21A9,9 0 0,0 22,12A9,9 0 0,0 13,3Z" />
+                        </svg>
+                    </button>                    
+                </div>
+            </div>
+        </div>
+        <div *ngIf="!result" class="relative overflow-x-auto">
+            <table class="w-full text-sm text-gray-500 dark:text-gray-400">
+                <thead class="w-full text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="sm:px-6 py-3 rounded-s-lg">
+                            Predictor
+                        </th>
+                        <th scope="col" class="sm:px-6 py-3">
+                            Indicador
+                        </th>
+                        <th scope="col" class="sm:px-6 py-3 rounded-e-lg">
+                            Escala
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="text-center">
+                    <tr class="bg-white dark:bg-gray-800">
+                        <th scope="row" class="sm:px-6 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Paridad
+                        </th>
+                        <td class="sm:px-6 py-3">
+                            Número de partos anteriores <span>(según entrevista)</span></td>
+                        <td class="sm:px-6 py-3">
+                            Presente: Multípara<br>
+                            Ausente: Nulípara
+                        </td>
+                    </tr>
+                    <tr class="bg-white dark:bg-gray-800">
+                        <th scope="row" class="sm:px-6 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Nivel de<br> escolaridad
+                        </th>
+                        <td class="sm:px-6 py-3">
+                            Último nivel escolar vencido <span> (según entrevista)</span>
+                        </td>
+                        <td class="sm:px-6 py-3">
+                            Presente: Primaria<br>
+                            Ausente: medio, medio superior o universitario
+                        </td>
+                    </tr>
+                    <tr class="bg-white dark:bg-gray-800">
+                        <th scope="row" class="sm:px-6 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Higiene<br>bucal
+                        </th>
+                        <td class="sm:px-6 py-3">
+                            IHB-S de Green y Vermillon</td>
+                        <td class="sm:px-6 py-3">
+                            Presente: deficiente (1,3-6.0)<br>
+                            Ausente: buena (0,0-1,2)
+                        </td>
+                    </tr>
+                    <tr class="bg-white dark:bg-gray-800">
+                        <th scope="row" class="sm:px-6 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Adición<br>tabáquica
+                        </th>
+                        <td class="sm:px-6 py-3">
+                            Referencia de la presencia del hábito<span> (según entrevista)</span></td>
+                        <td class="sm:px-6 py-3">
+                            Presente: Fumadora (hábito activo)<br>
+                            Ausente: No fumadora, nunca ha fumado y ex fumadora (ha abandonado el hábito)
+                        </td>
+                    </tr>
+                    <tr class="bg-white dark:bg-gray-800">
+                        <th scope="row" class="sm:px-6 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Estrés<br>psicológico
+                        </th>
+                        <td class="sm:px-6 py-3">
+                            Criterios agrupados<span> (según Test de vulnerabilidad)</span></td>
+                        <td class="sm:px-6 py-3">
+                            Presente: ≥ 50 puntos<br>
+                            Ausente: < 50 puntos </td>
+                    </tr>
+                    <tr class="bg-white dark:bg-gray-800">
+                        <th scope="row" class="sm:px-6 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Diabetes<br>mellitus
+                        </th>
+                        <td class="sm:px-6 py-3">
+                            Diagnóstico de diabetes mellitus<span> (según Historia clínica)</span></td>
+                        <td class="sm:px-6 py-3">
+                            Presente: diagnóstico de diabetes mellitus tipo 1, 2 o gestacional<br>
+                            Ausente: no presenta diabetes mellitus
+                        </td>
+                    </tr>
+                    <tr class="bg-white dark:bg-gray-800">
+                        <th scope="row" class="sm:px-6 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                            Obesidad
+                        </th>
+                        <td class="sm:px-6 py-3">
+                            Índice de masa corporal (IMC)<span> (según Historia clínica)</span></td>
+                        <td class="sm:px-6 pt-3">
+                            Presente: (IMC ≥ 30 kg/m2)<br>
+                            Ausente: (IMC < 30 kg/m2) </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
