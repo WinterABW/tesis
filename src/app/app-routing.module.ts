@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { InitFormComponent } from './init-form/init-form.component';
 import { PredictComponent } from './predict/predict.component';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   {
-    path: '', component: InitFormComponent
+    path: '', component: HeaderComponent              
   },
   {
-    path: 'predict', component: PredictComponent
-  }
+    path: 'result', component: PredictComponent              
+  },
 ];
 
 @NgModule({
