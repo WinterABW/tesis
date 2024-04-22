@@ -5,10 +5,10 @@ import { PredictComponent } from './predict/predict.component';
 
 const routes: Routes = [
   {
-    path:'',component:InitFormComponent
+    path: '', component: InitFormComponent
   },
   {
-    path:'predict',component:PredictComponent
+    path: 'predict', component: PredictComponent
   }
 ];
 
