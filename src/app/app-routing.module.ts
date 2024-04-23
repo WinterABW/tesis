@@ -6,7 +6,16 @@ const routes: Routes = [
   {
     path: '', component: HeaderComponent
   },
-  { path: 'result', loadChildren: () => import('./modules/predict/predict.module').then(m => m.PredictModule) },
+  {
+    path: 'result', loadChildren: () =>
+      import('./modules/predict/predict.module')
+        .then(m => m.PredictModule)
+  },
+  {
+    path: 'anexos', loadChildren: () =>
+      import('./modules/anexos/anexos.module')
+        .then(m => m.AnexosModule)
+  }
 ];
 
 @NgModule({
