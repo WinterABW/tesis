@@ -1,15 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PredictComponent } from './predict/predict.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './common/header/header.component';
 
 const routes: Routes = [
   {
-    path: '', component: HeaderComponent              
+    path: '', component: HeaderComponent
   },
-  {
-    path: 'result', component: PredictComponent              
-  },
+  { path: 'result', loadChildren: () => import('./modules/predict/predict.module').then(m => m.PredictModule) },
 ];
 
 @NgModule({
