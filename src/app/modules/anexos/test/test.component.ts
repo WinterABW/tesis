@@ -29,23 +29,24 @@ export class TestComponent {
     "Converso regularmente sobre problemas domésticos (es decir sobre tareas del hogar, dinero, problemas de la vida cotidiana) con las personas que conviven conmigo.",
   ];
 
-  
+  respuestas: string[] = new Array(this.afirmaciones.length).fill('0');
+
+  checkData() {
+    let haveZero = this.respuestas.includes('0')
+
+    if (!haveZero)
+      this.calcularPuntuacion()
+    else
+      alert('seleccione todo')
+  }
+
 
   calcularPuntuacion() {
-    
-    
-    let nivelVulnerabilidad = '';
-    /* if (puntuacionTotal < 30) {
-        nivelVulnerabilidad = 'No vulnerable';
-    } else if (puntuacionTotal >= 30 && puntuacionTotal <= 49) {
-        nivelVulnerabilidad = 'Vulnerable';
-    } else if (puntuacionTotal >= 50 && puntuacionTotal <= 75) {
-        nivelVulnerabilidad = 'Seriamente vulnerable';
-    } else {
-        nivelVulnerabilidad = 'Extremadamente vulnerable';
-    }
-    console.log('Puntuación total:', puntuacionTotal); */
-    console.log('Nivel de vulnerabilidad:', nivelVulnerabilidad);
+    let puntuacionTotal: number = 0;
+    for (let respuesta of this.respuestas)
+      if (respuesta !== '0')
+        puntuacionTotal += parseFloat(respuesta);
+    puntuacionTotal -= 20;
+    alert(puntuacionTotal);
   }
 }
-
