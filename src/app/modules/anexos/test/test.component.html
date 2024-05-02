@@ -10,17 +10,6 @@
                 Seleccione una opción para cada afirmación y luego haga clic en el botón "Calcular Puntuación" para
                 obtener los resultados.
             </p>
-
-            <div class="flex flex-col sm:flex-row sm:gap-3">
-                <button type="submit"
-                    class="inline-flex items-center px-3 py-2 mt-2 sm:mt-0 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                    Calcular Puntuación
-                </button>
-                <button routerLink="../"
-                    class="inline-flex items-center px-3 py-2 mt-2 sm:mt-0 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                    Regresar
-                </button>
-            </div>
         </div>
     </div>
     <div *ngFor="let afirmacion of afirmaciones; let i = index" class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 p-2">
@@ -38,5 +27,26 @@
                 <option value="5">Nunca</option>
             </select>
         </section>
+    </div>
+
+    <div class="flex justify-center w-full flex-col sm:flex-row-reverse sm:gap-40 py-2 px-5">
+        <button type="submit"
+            class="button-animation inline-flex items-center px-3 py-2 mt-2 sm:mt-0 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Calcular Puntuación
+            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M1 5h12m0 0L9 1m4 4L9 9" />
+            </svg>
+        </button>
+        <button routerLink="../"
+            class="inline-flex items-center px-3 py-2 mt-2 sm:mt-0 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <svg class="rtl:rotate-180 w-3.5 h-3.5 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 5H1M1 5l6-4M1 5l6 4" />
+            </svg>
+            Regresar
+        </button>
     </div>
 </form>

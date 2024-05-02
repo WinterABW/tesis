@@ -1,0 +1,79 @@
+<form [formGroup]="formulario" (ngSubmit)="enviarDatos()"
+    class="flex flex-col shadow-2xl p-6 rounded-lg overflow-y-auto">
+    <div class="flex flex-col">
+        <label class="block mb-2 text-3xl font-medium dark:text-white">Factores Predictores:</label>
+        <div class="flex items-center mb-2">
+            <input id="paridad" type="checkbox" value="1" formControlName="paridad"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mr-2" />
+            <label for="paridad" class="text-lg font-medium text-gray-900 dark:text-gray-300">Paridad
+                (Pa)</label>
+
+        </div>
+        <div class="flex items-center mb-2">
+            <input id="nivel_escolaridad" type="checkbox" value="1" formControlName="nivel_escolaridad"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mr-2" />
+            <label for="nivel_escolaridad" class="text-lg font-medium text-gray-900 dark:text-gray-300">Nivel de
+                Escolaridad (NE)</label>
+
+        </div>
+        <div class="flex items-center mb-2">
+            <input id="higiene_bucal" type="checkbox" value="1" formControlName="higiene_bucal"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mr-2" />
+            <label for="higiene_bucal" class="text-lg font-medium text-gray-900 dark:text-gray-300">Higiene
+                Bucal
+                (HB)</label>
+
+        </div>
+        <div class="flex items-center mb-2">
+            <input id="adiccion_tabaquica" type="checkbox" value="1" formControlName="adiccion_tabaquica"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mr-2" />
+            <label for="adiccion_tabaquica" class="text-lg font-medium text-gray-900 dark:text-gray-300">Adicción
+                Tabaquica (AT)</label>
+
+        </div>
+        <div class="flex items-center mb-2">
+            <input id="estres_psicologico" type="checkbox" value="1" formControlName="estres_psicologico"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mr-2" />
+            <label for="estres_psicologico" class="text-lg font-medium text-gray-900 dark:text-gray-300">Estrés
+                Psicológico (EP)</label>
+
+        </div>
+        <div class="flex items-center mb-2">
+            <input id="diabetes_mellitus" type="checkbox" value="1" formControlName="diabetes_mellitus"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mr-2" />
+            <label for="diabetes_mellitus" class="text-lg font-medium text-gray-900 dark:text-gray-300">Diabetes
+                Mellitus (DM)</label>
+
+        </div>
+        <div class="flex items-center mb-2">
+            <input id="obesidad" type="checkbox" value="1" formControlName="obesidad"
+                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mr-2" />
+            <label for="obesidad" class="text-lg font-medium text-gray-900 dark:text-gray-300">Obesidad
+                (O)</label>
+
+        </div>
+        <button type="submit" [disabled]="valor!==0"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Aceptar
+        </button>
+        <a (click)="restoreData()"
+            class="mt-4 inline-flex justify-center gap-2 items-center px-5 py-2.5 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            Restaurar
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                id="mdi-restore" width="20" height="20" viewBox="0 0 24 24"
+                :class="{'text-black': isDarkMode, 'text-white': !isDarkMode}">
+                <path fill="currentColor"
+                    d="M13,3A9,9 0 0,0 4,12H1L4.89,15.89L4.96,16.03L9,12H6A7,7 0 0,1 13,5A7,7 0 0,1 20,12A7,7 0 0,1 13,19C11.07,19 9.32,18.21 8.06,16.94L6.64,18.36C8.27,20 10.5,21 13,21A9,9 0 0,0 22,12A9,9 0 0,0 13,3Z" />
+            </svg>
+        </a>
+        <a routerLink="../"
+            class="button-animation justify-center gap-2 inline-flex items-center px-5 py-2.5 mt-4 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <svg class="rtl:rotate-180 w-3.5 h-3.5 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 14 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M13 5H1M1 5l6-4M1 5l6 4" />
+            </svg>
+            Regresar
+        </a>
+    </div>
+</form>
