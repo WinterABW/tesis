@@ -24,6 +24,7 @@ const components = [
     CommonModule,
     PredictRoutingModule,
     ReactiveFormsModule
-  ]
+  ],
+  exports:[InfoTableComponent]
 })
 export class PredictModule { }

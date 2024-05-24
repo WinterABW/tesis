@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RulesComponent } from './rules.component';
+import { RulesRoutingModule } from './rules-routing.module';
+import { PredictModule } from '../predict/predict.module';
 
 
 
@@ -9,7 +11,9 @@ import { RulesComponent } from './rules.component';
     RulesComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RulesRoutingModule,
+    PredictModule
   ]
 })
 export class RulesModule { }
