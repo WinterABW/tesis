@@ -7,22 +7,12 @@ import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { CardsComponent } from './common/cards/cards.component';
 
-const components = [
-  HeaderComponent,
-  FooterComponent,
-  CardsComponent
-];
+const components = [HeaderComponent, FooterComponent, CardsComponent];
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    ...components
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-  ],
+  declarations: [AppComponent, ...components],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

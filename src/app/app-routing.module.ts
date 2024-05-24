@@ -4,22 +4,28 @@ import { HeaderComponent } from './common/header/header.component';
 
 const routes: Routes = [
   {
-    path: '', component: HeaderComponent
+    path: '',
+    component: HeaderComponent,
   },
   {
-    path: 'result', loadChildren: () =>
-      import('./modules/predict/predict.module')
-        .then(m => m.PredictModule)
+    path: 'result',
+    loadChildren: () =>
+      import('./modules/predict/predict.module').then((m) => m.PredictModule),
   },
   {
-    path: 'anexos', loadChildren: () =>
-      import('./modules/anexos/anexos.module')
-        .then(m => m.AnexosModule)
-  }
+    path: 'anexos',
+    loadChildren: () =>
+      import('./modules/anexos/anexos.module').then((m) => m.AnexosModule),
+  },
+  {
+    path: 'rules',
+    loadChildren: () =>
+      import('./modules/rules/rules.module').then((m) => m.RulesModule),
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
