@@ -1,4 +1,4 @@
-import { Component, ElementRef, QueryList, ViewChildren } from '@angular/core';
+import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { afirmaciones } from './afirmations';
 
 @Component({
@@ -6,17 +6,16 @@ import { afirmaciones } from './afirmations';
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.scss']
 })
-export class TestComponent {
-
+export class TestComponent{
+  afirmaciones = afirmaciones
+  respuestas: string[] = new Array(afirmaciones.length).fill('0');
+  puntuacionTotal: number = 0;
+  showResult:boolean=false
   @ViewChildren('select') selectores!: QueryList<ElementRef>;
 
-  afirmaciones = afirmaciones
-
-  respuestas: string[] = new Array(afirmaciones.length).fill('0');
 
   checkData() {
     const index = this.respuestas.findIndex(respuesta => respuesta === '0');
-
     if (index !== -1 && this.selectores.toArray()[index])
       this.selectores.toArray()[index].nativeElement.focus();
     else
@@ -24,11 +23,10 @@ export class TestComponent {
   }
 
   calcularPuntuacion() {
-    let puntuacionTotal: number = 0;
     for (let respuesta of this.respuestas)
       if (respuesta !== '0')
-        puntuacionTotal += parseFloat(respuesta);
-    puntuacionTotal -= 20;
-    alert(puntuacionTotal);
+        this.puntuacionTotal += parseFloat(respuesta);
+    this.puntuacionTotal -= 20;
+    this.showResult=true
   }
 }

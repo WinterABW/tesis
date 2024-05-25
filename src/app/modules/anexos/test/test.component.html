@@ -1,52 +1,77 @@
-<form class="px-2 flex flex-wrap" (ngSubmit)="checkData()">
-    <div class="mb-4">
-        <p
-            class="mb-3 text-center text-gray-500 dark:text-gray-400 first-line:uppercase first-line:tracking-widest first-letter:text-5xl first-letter:font-bold first-letter:text-gray-900 dark:first-letter:text-gray-100">
-            Test de Vulnerabilidad al Estrés de L. H. Miller y A. D. Smith</p>
-        <div class="flex flex-col sm:flex-row justify-around">
-            <p class="text-gray-500 dark:text-gray-400 sm:w-3/4 text-base">
-                Por favor, responda a las siguientes afirmaciones seleccionando la opción que mejor describa su
-                situación actual.
-                Seleccione una opción para cada afirmación y luego haga clic en el botón "Calcular Puntuación" para
-                obtener los resultados.
-            </p>
+<ng-container *ngIf="!showResult">
+    <form class="px-2 flex flex-wrap" (ngSubmit)="checkData()">
+        <div class="mb-4">
+            <p
+                class="mb-3 text-center text-gray-500 dark:text-gray-400 first-line:uppercase first-line:tracking-widest first-letter:text-5xl first-letter:font-bold first-letter:text-gray-900 dark:first-letter:text-gray-100">
+                Test de Vulnerabilidad al Estrés de L. H. Miller y A. D. Smith</p>
+            <div class="flex flex-col sm:flex-row justify-around">
+                <p class="text-gray-500 dark:text-gray-400 sm:w-3/4 text-base">
+                    Por favor, responda a las siguientes afirmaciones seleccionando la opción que mejor describa su
+                    situación actual.
+                    Seleccione una opción para cada afirmación y luego haga clic en el botón "Calcular Puntuación" para
+                    obtener los resultados.
+                </p>
+            </div>
         </div>
-    </div>
-    <div *ngFor="let afirmacion of afirmaciones; let i = index" class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 p-2">
-        <section>
-            <label for="small{{i}}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
-                {{ afirmacion }}
-            </label>
-            <select #select id="small{{i}}" name="respuesta{{i}}" [(ngModel)]="respuestas[i]"
-                class="block w-full p-2 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option value="0" disabled selected>Seleccione</option>
-                <option value="1">Siempre</option>
-                <option value="2">Casi siempre</option>
-                <option value="3">Frecuentemente</option>
-                <option value="4">Casi nunca</option>
-                <option value="5">Nunca</option>
-            </select>
-        </section>
-    </div>
+        <div *ngFor="let afirmacion of afirmaciones; let i = index" class="w-full sm:w-1/2 md:w-1/2 lg:w-1/4 p-2">
+            <section>
+                <label for="small{{i}}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                    {{ afirmacion }}
+                </label>
+                <select #select id="small{{i}}" name="respuesta{{i}}" [(ngModel)]="respuestas[i]"
+                    class="block w-full p-2 mb-6 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <option value="0" disabled selected>Seleccione</option>
+                    <option value="1">Siempre</option>
+                    <option value="2">Casi siempre</option>
+                    <option value="3">Frecuentemente</option>
+                    <option value="4">Casi nunca</option>
+                    <option value="5">Nunca</option>
+                </select>
+            </section>
+        </div>
 
-    <div class="flex justify-center w-full flex-col sm:flex-row-reverse sm:gap-40 py-2 px-5">
-        <button type="submit"
-            class="button-animation inline-flex items-center px-3 py-2 mt-2 sm:mt-0 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            Calcular Puntuación
-            <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M1 5h12m0 0L9 1m4 4L9 9" />
-            </svg>
-        </button>
-        <button routerLink="../"
-            class="inline-flex items-center px-3 py-2 mt-2 sm:mt-0 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-            <svg class="rtl:rotate-180 w-3.5 h-3.5 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                fill="none" viewBox="0 0 14 10">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M13 5H1M1 5l6-4M1 5l6 4" />
-            </svg>
-            Regresar
-        </button>
-    </div>
-</form>
+        <div class="flex justify-center w-full flex-col sm:flex-row-reverse sm:gap-40 py-2 px-5">
+            <button type="submit"
+                class="button-animation inline-flex items-center px-3 py-2 mt-2 sm:mt-0 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Calcular Puntuación
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 5h12m0 0L9 1m4 4L9 9" />
+                </svg>
+            </button>
+            <button routerLink="../"
+                class="inline-flex items-center px-3 py-2 mt-2 sm:mt-0 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <svg class="rtl:rotate-180 w-3.5 h-3.5 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 14 10">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 5H1M1 5l6-4M1 5l6 4" />
+                </svg>
+                Regresar
+            </button>
+        </div>
+    </form>
+</ng-container>
+<ng-container *ngIf="showResult">
+<section class="p-5 text-center">
+    
+    <h4
+        class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-3xl lg:text-4xl dark:text-white">
+        Test de<span
+            class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">
+            Vulnerabilidad al estrés:</span></h4>
+    <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Puntuación: <span>{{puntuacionTotal}}</span></p>
+    <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400">Resultados: <span>{{puntuacionTotal>=50?'Presente':'Ausente'}}</span></p>
+</section>
+<div class="flex justify-center mt-10">
+    <a routerLink="../"
+        class="button-animation inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        <svg class="rtl:rotate-180 w-3.5 h-3.5 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+            viewBox="0 0 14 10">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M13 5H1M1 5l6-4M1 5l6 4" />
+        </svg>
+        Regresar
+    </a>
+</div>
+</ng-container>
